@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" /> -->
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://aroha-health.com/assets/logo.png"
+    />
+    <link rel="icon" href="https://aroha-health.com/assets/logo.png" />
+
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+
+    <meta
+      name="description"
+      content="Aroha Health scheduling system for managing healthcare appointments and sessions."
+    />
+
+    <meta property="og:title" content="Aroha Health Scheduling Feature" />
+    <meta
+      property="og:description"
+      content="Simplify healthcare appointment scheduling with Aroha Health."
+    />
+  </head>
+
+  <body class="bg-white text-gray-900">
+    <slot />
+  </body>
+</html>

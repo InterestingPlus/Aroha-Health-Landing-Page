@@ -1,0 +1,77 @@
+---
+import Container from "./Container.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+import Calendar from "../icons/Calendar.astro";
+import Clock from "../icons/Clock.astro";
+import Users from "../icons/Users.astro";
+import Activity from "../icons/Activity.astro";
+import Video from "../icons/Video.astro";
+import FileText from "../icons/FileText.astro";
+
+const capabilities = [
+  {
+    icon: Calendar,
+    title: "Appointment Calendar View",
+    desc: "View daily, weekly, and monthly schedules at a glance with color-coded appointment types.",
+  },
+  {
+    icon: Users,
+    title: "Client Scheduling",
+    desc: "Allow clients to request appointments based on your real-time availability.",
+  },
+  {
+    icon: Activity,
+    title: "Session Tracking",
+    desc: "Monitor attendance, cancellations, and no-shows to optimize your practice operations.",
+  },
+  {
+    icon: Clock,
+    title: "Flexible Session Duration",
+    desc: "Customize appointment lengths to fit different types of consultations and therapies.",
+  },
+  {
+    icon: Video,
+    title: "Online & In-Person Sessions",
+    desc: "Automatically generate telehealth video links or specify physical clinic locations.",
+  },
+  {
+    icon: FileText,
+    title: "Session Notes Management",
+    desc: "Attach private clinical notes securely to each scheduled appointment.",
+  },
+];
+---
+
+<section class="py-24 bg-slate-50 border-y border-slate-100">
+  <Container>
+    <SectionHeading
+      title="Designed for Healthcare Workflows"
+      subtitle="A comprehensive toolkit to handle the complexities of modern clinical scheduling."
+    />
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+      {
+        capabilities.map((cap) => {
+          const Icon = cap.icon;
+
+          return (
+            <div class="flex gap-4 items-start">
+              <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 text-purple-600 shrink-0">
+                <Icon />
+              </div>
+
+              <div>
+                <h4 class="text-lg font-bold text-slate-900 mb-2">
+                  {cap.title}
+                </h4>
+
+                <p class="text-slate-600 leading-relaxed text-sm">{cap.desc}</p>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </Container>
+</section>
