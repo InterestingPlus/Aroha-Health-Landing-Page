@@ -2,75 +2,47 @@
 import Container from "./Container.astro";
 import SectionHeading from "./SectionHeading.astro";
 
-import Calendar from "../icons/Calendar.astro";
-import Clock from "../icons/Clock.astro";
-import Users from "../icons/Users.astro";
-import Activity from "../icons/Activity.astro";
-import Video from "../icons/Video.astro";
-import FileText from "../icons/FileText.astro";
-
 const capabilities = [
   {
-    icon: Calendar,
-    title: "Appointment Calendar View",
-    desc: "View daily, weekly, and monthly schedules at a glance with color-coded appointment types.",
+    icon: "fa-regular fa-clock",
+    title: "Save Time",
+    desc: "Automate appointment scheduling and reminders so you can focus more on client care.",
   },
   {
-    icon: Users,
-    title: "Client Scheduling",
-    desc: "Allow clients to request appointments based on your real-time availability.",
+    icon: "fa-regular fa-folder",
+    title: "Stay Organized",
+    desc: "Keep client records, session notes, and appointments neatly organized in one place.",
   },
   {
-    icon: Activity,
-    title: "Session Tracking",
-    desc: "Monitor attendance, cancellations, and no-shows to optimize your practice operations.",
-  },
-  {
-    icon: Clock,
-    title: "Flexible Session Duration",
-    desc: "Customize appointment lengths to fit different types of consultations and therapies.",
-  },
-  {
-    icon: Video,
-    title: "Online & In-Person Sessions",
-    desc: "Automatically generate telehealth video links or specify physical clinic locations.",
-  },
-  {
-    icon: FileText,
-    title: "Session Notes Management",
-    desc: "Attach private clinical notes securely to each scheduled appointment.",
+    icon: "fa-regular fa-chart-area",
+    title: "Reduce No-Shows",
+    desc: "Automated reminders and confirmations help reduce missed appointments and cancellations.",
   },
 ];
 ---
 
-<section class="py-24 bg-slate-50 border-y border-slate-100">
+<section class="py-24 bg-lightBg border-y border-gray-100">
   <Container>
     <SectionHeading
-      title="Designed for Healthcare Workflows"
-      subtitle="A comprehensive toolkit to handle the complexities of modern clinical scheduling."
+      title="Why Professionals Love Aroha Scheduling"
+      subtitle="Everything you need to simplify scheduling and client management."
     />
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
       {
-        capabilities.map((cap) => {
-          const Icon = cap.icon;
-
-          return (
-            <div class="flex gap-4 items-start">
-              <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 text-purple-600 shrink-0">
-                <Icon />
-              </div>
-
-              <div>
-                <h4 class="text-lg font-bold text-slate-900 mb-2">
-                  {cap.title}
-                </h4>
-
-                <p class="text-slate-600 leading-relaxed text-sm">{cap.desc}</p>
-              </div>
+        capabilities.map((cap) => (
+          <div class="flex gap-4 items-start">
+            <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-200 text-primary shrink-0">
+              <i class={cap.icon} />
             </div>
-          );
-        })
+
+            <div>
+              <h4 class="text-lg font-bold text-darkBlue mb-2">{cap.title}</h4>
+
+              <p class="text-textGray leading-relaxed text-sm">{cap.desc}</p>
+            </div>
+          </div>
+        ))
       }
     </div>
   </Container>

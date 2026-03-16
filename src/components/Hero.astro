@@ -1,162 +1,42 @@
 ---
 import Container from "./Container.astro";
-
-import Users from "../icons/Users.astro";
-import CalendarDays from "../icons/CalendarDays.astro";
-import Video from "../icons/Video.astro";
-import ArrowRight from "../icons/ArrowRight.astro";
-import PlayCircle from "../icons/PlayCircle.astro";
-import Plus from "../icons/Plus.astro";
-import ChevronLeft from "../icons/ChevronLeft.astro";
-import ChevronRight from "../icons/ChevronRight.astro";
 ---
 
-<section class="pt-20 pb-32 overflow-hidden bg-slate-50 relative">
-  <div
-    class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-purple-50/50 blur-3xl rounded-full -z-10 pointer-events-none"
-  >
-  </div>
+<section
+  class="mt-[80px] relative bg-center bg-cover bg-no-repeat"
+  style="background-image: url('/images/background.jpg');"
+>
+  <div class="absolute inset-0 bg-black/50"></div>
 
   <Container>
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <!-- Left Content -->
-      <div class="max-w-xl">
-        <div
-          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-sm font-semibold mb-6"
+    <div
+      class="relative flex flex-col items-center justify-center py-16 px-6 md:p-[70px] text-center"
+    >
+      <h1
+        class="text-white font-bold text-3xl md:text-5xl lg:text-[60px] leading-tight"
+      >
+        Smart Scheduling for Modern <br class="hidden md:block" /> Mental Health Practices
+      </h1>
+
+      <p
+        class="text-white text-base md:text-lg lg:text-[20px] max-w-[800px] mt-5"
+      >
+        Effortlessly manage oppointments, reduce no-shows, and automate
+        reminders with our intelligent scheduling platform.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-5 mt-12">
+        <button
+          class="bg-primary hover:bg-primaryHover text-white px-4 py-2 rounded-full font-medium text-[14px] transition transform hover:scale-105"
         >
-          <span class="flex h-2 w-2 rounded-full bg-purple-600"></span>
-          New Scheduling Experience
-        </div>
+          Request a Demo
+        </button>
 
-        <h1
-          class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] mb-6 tracking-tight"
+        <button
+          class="bg-white text-textGray px-4 py-2 rounded-full font-medium text-[14px] transition transform hover:scale-105"
         >
-          Smart Scheduling for
-          <span class="text-purple-600"> Modern Healthcare Practices </span>
-        </h1>
-
-        <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
-          Easily manage appointments, sessions, and client schedules with Aroha
-          Health's intelligent, practitioner-first scheduling system.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4">
-          <button
-            class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all shadow-lg shadow-purple-200 flex items-center justify-center gap-2 group"
-            onclick="window.open('https://care.aroha-health.com','_blank')"
-          >
-            Explore Scheduling
-            <ArrowRight
-              class="group-hover:translate-x-1 transition-transform"
-            />
-          </button>
-
-          <button
-            class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-4 rounded-full font-semibold text-lg transition-all flex items-center justify-center gap-2"
-            onclick="window.open('https://aroha-health.com','_blank')"
-          >
-            <PlayCircle class="text-slate-400" />
-            View Demo
-          </button>
-        </div>
-      </div>
-
-      <!-- Right Mock UI -->
-      <div class="relative z-10">
-        <div
-          class="absolute inset-0 bg-gradient-to-tr from-purple-100 to-teal-50 rounded-[2rem] transform rotate-3 scale-105 -z-10"
-        >
-        </div>
-
-        <div
-          class="bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col h-[500px]"
-        >
-          <!-- Header -->
-          <div
-            class="h-14 border-b border-slate-100 flex items-center justify-between px-6 bg-slate-50/50"
-          >
-            <div class="flex items-center gap-4">
-              <div
-                class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-md border border-slate-200 text-sm font-medium text-slate-700"
-              >
-                <CalendarDays class="text-purple-600 w-4 h-4" />
-                Today
-              </div>
-
-              <div class="flex items-center gap-2 text-slate-500">
-                <ChevronLeft class="cursor-pointer hover:text-slate-800" />
-                <ChevronRight class="cursor-pointer hover:text-slate-800" />
-
-                <span class="font-semibold text-slate-800 ml-2">
-                  March 2026
-                </span>
-              </div>
-            </div>
-
-            <button
-              class="bg-purple-600 text-white px-3 py-1.5 rounded-md text-sm font-medium flex items-center gap-1"
-              onclick="window.open('https://care.aroha-health.com','_blank')"
-            >
-              <Plus class="w-4 h-4" />
-              New Appt
-            </button>
-          </div>
-
-          <!-- Body -->
-          <div class="flex-1 p-6 bg-slate-50 overflow-hidden relative">
-            <div
-              class="absolute top-12 left-10 right-10 bottom-0 border-l border-slate-200"
-            >
-              <!-- Time grid -->
-              {
-                [9, 10, 11, 12, 1].map((time, i) => (
-                  <div
-                    class="absolute w-full border-t border-slate-200/60 flex items-start"
-                    style={`top:${i * 25}%`}
-                  >
-                    <span class="absolute -left-10 -top-5 text-xs text-slate-400 font-medium w-8 text-right">
-                      {time} {time < 8 ? "PM" : "AM"}
-                    </span>
-                  </div>
-                ))
-              }
-
-              <!-- Appointment 1 -->
-              <div
-                class="absolute top-[5%] left-4 right-4 bg-purple-50 border border-purple-200 rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow cursor-pointer border-l-4 border-l-purple-600"
-              >
-                <div class="flex justify-between items-start">
-                  <div>
-                    <h4 class="font-semibold text-purple-900 text-sm">
-                      Therapy Session - Sarah Jenkins
-                    </h4>
-                    <p class="text-purple-600 text-xs mt-0.5">
-                      09:15 AM - 10:00 AM • Video Call
-                    </p>
-                  </div>
-                  <Video class="text-purple-400 w-4 h-4" />
-                </div>
-              </div>
-
-              <!-- Appointment 2 -->
-              <div
-                class="absolute top-[40%] left-4 right-4 bg-teal-50 border border-teal-200 rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow cursor-pointer border-l-4 border-l-teal-500"
-              >
-                <div class="flex justify-between items-start">
-                  <div>
-                    <h4 class="font-semibold text-teal-900 text-sm">
-                      Initial Consultation - Mark D.
-                    </h4>
-                    <p class="text-teal-700 text-xs mt-0.5">
-                      10:30 AM - 11:30 AM • In-person
-                    </p>
-                  </div>
-                  <Users class="text-teal-500 w-4 h-4" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          Learn More
+        </button>
       </div>
     </div>
   </Container>

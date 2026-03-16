@@ -1,89 +1,46 @@
 ---
 import Container from "./Container.astro";
-
-const pathname = Astro.url.pathname;
-
-const isActive = (path: string): boolean => pathname === path;
 ---
 
 <nav
-  class="border-b border-slate-100 bg-white/80 backdrop-blur-md sticky top-0 z-50"
+  class="fixed top-0 w-screen h-[80px] bg-white z-[999] border-b border-gray-200"
 >
   <Container>
-    <div class="flex justify-between items-center h-20">
-      <!-- Logo -->
-      <div class="flex items-center gap-2">
-        <div class="bg-white text-white rounded-lg">
-          <img
-            src="https://aroha-health.com/assets/logo.png"
-            alt="Aroha Health Logo"
-            width="40"
-            height="40"
-          />
-        </div>
+    <div class="flex justify-between items-center p-5">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="https://aroha-health.com/assets/logo.png" class="w-[40px]" />
+        <h1 class="font-bold text-darkBlue">Aroha</h1>
+      </a>
 
-        <span class="font-bold text-xl text-slate-900 tracking-tight">
-          Aroha Health
-        </span>
-      </div>
+      <ul class="hidden md:flex items-center gap-6 text-[15px] text-textGray">
+        <li>
+          <a href="#features" class="cursor-pointer hover:text-primary">
+            Features
+          </a>
+        </li>
+        <li>
+          <a href="#pricing" class="cursor-pointer hover:text-primary">
+            Pricing
+          </a>
+        </li>
+        <li>
+          <a href="#blog" class="cursor-pointer hover:text-primary"> Blog </a>
+        </li>
+        <li>
+          <a href="#testimonials" class="cursor-pointer hover:text-primary">
+            Testimonials
+          </a>
+        </li>
+        <li>
+          <a href="#faq" class="cursor-pointer hover:text-primary"> FAQ </a>
+        </li>
+      </ul>
 
-      <!-- Nav Links -->
-      <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
-        <a
-          href="/features"
-          class={`hover:text-purple-600 transition-colors ${
-            isActive("/features") ? "text-purple-600 font-semibold" : ""
-          }`}
-        >
-          Features
-        </a>
-
-        <a
-          href="/solutions"
-          class={`hover:text-purple-600 transition-colors ${
-            isActive("/solutions") ? "text-purple-600 font-semibold" : ""
-          }`}
-        >
-          Solutions
-        </a>
-
-        <a
-          href="/pricing"
-          class={`hover:text-purple-600 transition-colors ${
-            isActive("/pricing") ? "text-purple-600 font-semibold" : ""
-          }`}
-        >
-          Pricing
-        </a>
-
-        <a
-          href="/resources"
-          class={`hover:text-purple-600 transition-colors ${
-            isActive("/resources") ? "text-purple-600 font-semibold" : ""
-          }`}
-        >
-          Resources
-        </a>
-      </div>
-
-      <!-- Actions -->
-      <div class="flex gap-4">
-        <a
-          href="https://care.aroha-health.com"
-          target="_blank"
-          class="hidden md:block text-slate-600 font-medium hover:text-slate-900 transition-colors px-4 py-2"
-        >
-          Log in
-        </a>
-
-        <a
-          href="https://aroha-health.com"
-          target="_blank"
-          class="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-sm shadow-purple-200"
-        >
-          Start Free Trial
-        </a>
-      </div>
+      <button
+        class="bg-primary hover:bg-primaryHover text-white px-4 py-2 rounded-full font-semibold text-[14px] transition transform hover:scale-105"
+      >
+        Request a Demo
+      </button>
     </div>
   </Container>
 </nav>

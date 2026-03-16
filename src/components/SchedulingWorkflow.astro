@@ -2,46 +2,35 @@
 import Container from "./Container.astro";
 import SectionHeading from "./SectionHeading.astro";
 
-import Users from "../icons/Users.astro";
-import CalendarDays from "../icons/CalendarDays.astro";
-import Activity from "../icons/Activity.astro";
-import CheckCircle2 from "../icons/CheckCircle2.astro";
-import Search from "../icons/Search.astro";
-import CalendarPlus from "../icons/CalendarPlus.astro";
-
 const steps = [
   {
     num: 1,
     title: "Add Client",
     desc: "Create and manage client profiles before scheduling sessions.",
-    icon: Users,
     type: "search",
   },
   {
     num: 2,
     title: "Schedule Appointment",
     desc: "Quickly create new appointments using an intuitive scheduling modal.",
-    icon: CalendarPlus,
     type: "modal",
   },
   {
     num: 3,
     title: "Manage Calendar",
     desc: "View all upcoming appointments in a clear calendar interface.",
-    icon: CalendarDays,
     type: "calendar",
   },
   {
     num: 4,
     title: "Track Sessions",
     desc: "Manage session history, comprehensive notes, and therapy progress.",
-    icon: Activity,
     type: "sessions",
   },
 ];
 ---
 
-<section class="py-24 bg-slate-50">
+<section class="py-24 bg-lightBg">
   <Container>
     <SectionHeading
       title="How Scheduling Works"
@@ -50,85 +39,78 @@ const steps = [
 
     <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
       {
-        steps.map((step, idx) => {
-          const Icon = step.icon;
+        steps.map((step, idx) => (
+          <div class="relative">
+            {idx < steps.length - 1 && (
+              <div class="hidden xl:block absolute top-12 left-[60%] w-[80%] h-[2px] bg-gray-200 z-0" />
+            )}
 
-          return (
-            <div class="relative">
-              {idx < steps.length - 1 && (
-                <div class="hidden xl:block absolute top-12 left-[60%] w-[80%] h-[2px] bg-slate-200 z-0" />
-              )}
-
-              <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative z-10 h-full flex flex-col hover:border-purple-300 transition-colors">
-                <div class="flex justify-between items-start mb-4">
-                  <div class="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">
-                    {step.num}
-                  </div>
-
-                  <div class="p-2 bg-slate-50 text-slate-500 rounded-lg">
-                    <Icon />
-                  </div>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 relative z-10 h-full flex flex-col hover:border-primary transition-colors">
+              <div class="flex justify-between items-start mb-4">
+                <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                  {step.num}
                 </div>
 
-                <h4 class="text-lg font-bold text-slate-900 mb-2">
-                  {step.title}
-                </h4>
+                <div class="p-2 bg-lightBg text-textGray rounded-lg" />
+              </div>
 
-                <p class="text-sm text-slate-600 mb-6 flex-1">{step.desc}</p>
+              <h4 class="text-lg font-bold text-darkBlue mb-2">{step.title}</h4>
 
-                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 mt-auto">
-                  {step.type === "search" && (
-                    <div class="space-y-2">
-                      <div class="h-8 bg-slate-100 rounded-md flex items-center px-3 gap-2 text-slate-400 text-sm">
-                        <Search />
-                        Find or add client...
-                      </div>
+              <p class="text-sm text-textGray mb-6 flex-1">{step.desc}</p>
+
+              <div class="bg-lightBg p-3 rounded-xl border border-gray-100 mt-auto">
+                {step.type === "search" && (
+                  <div class="space-y-2">
+                    <div class="h-8 bg-gray-100 rounded-md flex items-center px-3 gap-2 text-gray-400 text-sm">
+                      Find or add client...
                     </div>
-                  )}
+                  </div>
+                )}
 
-                  {step.type === "modal" && (
-                    <div class="space-y-2 border border-slate-100 rounded-md p-2 bg-white shadow-sm">
-                      <div class="h-4 w-2/3 bg-purple-100 rounded" />
-                      <div class="h-3 w-1/2 bg-slate-100 rounded mt-2" />
-                      <div class="h-6 w-full bg-purple-600/10 rounded mt-3" />
-                    </div>
-                  )}
+                {step.type === "modal" && (
+                  <div class="space-y-2 border border-gray-100 rounded-md p-2 bg-white shadow-sm">
+                    <div class="h-4 w-2/3 bg-primary/20 rounded" />
+                    <div class="h-3 w-1/2 bg-gray-100 rounded mt-2" />
+                    <div class="h-6 w-full bg-primary/10 rounded mt-3" />
+                  </div>
+                )}
 
-                  {step.type === "calendar" && (
-                    <div class="grid grid-cols-3 gap-1 h-16">
-                      <div class="bg-slate-50 rounded flex flex-col justify-end p-1">
-                        <div class="h-2 w-full bg-purple-200 rounded" />
-                      </div>
-                      <div class="bg-slate-50 rounded flex flex-col justify-center p-1">
-                        <div class="h-4 w-full bg-teal-200 rounded" />
-                      </div>
-                      <div class="bg-slate-50 rounded flex flex-col justify-start p-1">
-                        <div class="h-3 w-full bg-sky-200 rounded" />
-                      </div>
+                {step.type === "calendar" && (
+                  <div class="grid grid-cols-3 gap-1 h-16">
+                    <div class="bg-lightBg rounded flex flex-col justify-end p-1">
+                      <div class="h-2 w-full bg-primary/40 rounded" />
                     </div>
-                  )}
 
-                  {step.type === "sessions" && (
-                    <div class="space-y-2">
-                      <div class="flex items-center gap-2">
-                        <CheckCircle2 />
-                        <div class="h-2 w-full bg-slate-100 rounded" />
-                      </div>
-                      <div class="flex items-center gap-2">
-                        <CheckCircle2 />
-                        <div class="h-2 w-3/4 bg-slate-100 rounded" />
-                      </div>
-                      <div class="flex items-center gap-2">
-                        <div class="w-[14px] h-[14px] rounded-full border border-slate-300" />
-                        <div class="h-2 w-1/2 bg-slate-100 rounded" />
-                      </div>
+                    <div class="bg-lightBg rounded flex flex-col justify-center p-1">
+                      <div class="h-4 w-full bg-primary/20 rounded" />
                     </div>
-                  )}
-                </div>
+
+                    <div class="bg-lightBg rounded flex flex-col justify-start p-1">
+                      <div class="h-3 w-full bg-primary/30 rounded" />
+                    </div>
+                  </div>
+                )}
+
+                {step.type === "sessions" && (
+                  <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                      <div class="h-2 w-full bg-gray-100 rounded" />
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                      <div class="h-2 w-3/4 bg-gray-100 rounded" />
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                      <div class="w-[14px] h-[14px] rounded-full border border-gray-300" />
+                      <div class="h-2 w-1/2 bg-gray-100 rounded" />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
-          );
-        })
+          </div>
+        ))
       }
     </div>
   </Container>

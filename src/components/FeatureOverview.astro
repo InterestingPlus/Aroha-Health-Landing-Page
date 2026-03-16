@@ -1,63 +1,59 @@
 ---
 import Container from "./Container.astro";
-
-import CalendarCheck from "../icons/CalendarCheck.astro";
-import Clock from "../icons/Clock.astro";
-import Users from "../icons/Users.astro";
+import SectionHeading from "./SectionHeading.astro";
 
 const features = [
   {
-    icon: CalendarCheck,
-    title: "Centralized Appointment Management",
+    icon: "fa-solid fa-calendar",
+    title: "Smart Calendar",
     description:
-      "Schedule, edit, and manage all client appointments from one unified, lightning-fast dashboard.",
-    color: "text-purple-600",
-    bgColor: "bg-purple-50",
+      "Intelligent booking and automated scheduling with drag and drop calendar control.",
+    color: "text-primary",
+    bgColor: "bg-lightBg",
   },
   {
-    icon: Clock,
-    title: "Flexible Time Scheduling",
+    icon: "fa-regular fa-clock",
+    title: "Flexible Session Management",
     description:
-      "Set session durations, manage practitioner availability, and organize complex schedules effortlessly.",
-    color: "text-teal-600",
-    bgColor: "bg-teal-50",
+      "Custom session types, recurring appointments, and flexible scheduling controls.",
+    color: "text-primary",
+    bgColor: "bg-lightBg",
   },
   {
-    icon: Users,
+    icon: "fa-solid fa-user",
     title: "Integrated Client Records",
     description:
       "Link appointments directly with secure client profiles, intake forms, and session notes.",
-    color: "text-sky-600",
-    bgColor: "bg-sky-50",
+    color: "text-primary",
+    bgColor: "bg-lightBg",
   },
 ];
 ---
 
 <section class="py-24 bg-white">
   <Container>
+    <SectionHeading
+      title="Powerfull Scheduling Tools"
+      subtitle="All the Tools do you need to run enterprise."
+    />
+
     <div class="grid md:grid-cols-3 gap-8">
       {
-        features.map((feature) => {
-          const Icon = feature.icon;
-
-          return (
-            <div class="p-8 rounded-2xl border border-slate-100 bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-              <div
-                class={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${feature.bgColor} ${feature.color} group-hover:scale-110 transition-transform duration-300`}
-              >
-                <Icon class="w-7 h-7" />
-              </div>
-
-              <h3 class="text-xl font-bold text-slate-900 mb-3">
-                {feature.title}
-              </h3>
-
-              <p class="text-slate-600 leading-relaxed">
-                {feature.description}
-              </p>
+        features.map((feature) => (
+          <div class="p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition duration-300">
+            <div
+              class={`w-[50px] h-[50px] rounded-lg mb-5 flex items-center justify-center text-[25px] ${feature.bgColor} ${feature.color}`}
+            >
+              <i class={feature.icon} />
             </div>
-          );
-        })
+
+            <h3 class="text-xl font-bold text-darkBlue mb-3">
+              {feature.title}
+            </h3>
+
+            <p class="text-textGray leading-relaxed">{feature.description}</p>
+          </div>
+        ))
       }
     </div>
   </Container>
